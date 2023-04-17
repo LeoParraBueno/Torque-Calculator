@@ -36,6 +36,7 @@ namespace TorqueCalculator {
 			this->CancelButton->Hide();
 			this->gearsPictureBox->Hide();
 			this->inputGearGroup->Hide();
+			this->middleGearGroup->Hide();
 			this->outputGearGroup->Hide();
 		}
 
@@ -170,22 +171,22 @@ namespace TorqueCalculator {
 			this->outputGearTorque = (gcnew System::Windows::Forms::TextBox());
 			this->outputGearTeethLabel = (gcnew System::Windows::Forms::Label());
 			this->middleGearGroup = (gcnew System::Windows::Forms::GroupBox());
+			this->midGearTeeth2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->midGearTeethLabel2 = (gcnew System::Windows::Forms::Label());
 			this->midGearTeeth1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->midGearTorqueLabel = (gcnew System::Windows::Forms::Label());
 			this->midGearRPM = (gcnew System::Windows::Forms::TextBox());
 			this->midGearRPMLabel = (gcnew System::Windows::Forms::Label());
 			this->midGearTorque = (gcnew System::Windows::Forms::TextBox());
 			this->midGearTeethLabel1 = (gcnew System::Windows::Forms::Label());
-			this->midGearTeeth2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->midGearTeethLabel2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->gearsPictureBox))->BeginInit();
 			this->inputGearGroup->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->inputGearTeeth))->BeginInit();
 			this->outputGearGroup->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->outputGearTeeth))->BeginInit();
 			this->middleGearGroup->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->midGearTeeth1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->midGearTeeth2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->midGearTeeth1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// StepTittle
@@ -236,7 +237,7 @@ namespace TorqueCalculator {
 			// ConfirmButton
 			// 
 			this->ConfirmButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->ConfirmButton->Location = System::Drawing::Point(253, 344);
+			this->ConfirmButton->Location = System::Drawing::Point(253, 263);
 			this->ConfirmButton->Name = L"ConfirmButton";
 			this->ConfirmButton->Size = System::Drawing::Size(94, 23);
 			this->ConfirmButton->TabIndex = 4;
@@ -247,7 +248,7 @@ namespace TorqueCalculator {
 			// CancelButton
 			// 
 			this->CancelButton->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->CancelButton->Location = System::Drawing::Point(144, 344);
+			this->CancelButton->Location = System::Drawing::Point(144, 263);
 			this->CancelButton->Name = L"CancelButton";
 			this->CancelButton->Size = System::Drawing::Size(94, 23);
 			this->CancelButton->TabIndex = 5;
@@ -348,7 +349,7 @@ namespace TorqueCalculator {
 			this->outputGearGroup->Controls->Add(this->outputGearTorque);
 			this->outputGearGroup->Controls->Add(this->outputGearTeethLabel);
 			this->outputGearGroup->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->outputGearGroup->Location = System::Drawing::Point(35, 265);
+			this->outputGearGroup->Location = System::Drawing::Point(35, 184);
 			this->outputGearGroup->Name = L"outputGearGroup";
 			this->outputGearGroup->Size = System::Drawing::Size(251, 73);
 			this->outputGearGroup->TabIndex = 14;
@@ -428,6 +429,23 @@ namespace TorqueCalculator {
 			this->middleGearGroup->TabStop = false;
 			this->middleGearGroup->Text = L"Middle Gear";
 			// 
+			// midGearTeeth2
+			// 
+			this->midGearTeeth2->Location = System::Drawing::Point(74, 43);
+			this->midGearTeeth2->Name = L"midGearTeeth2";
+			this->midGearTeeth2->Size = System::Drawing::Size(41, 20);
+			this->midGearTeeth2->TabIndex = 17;
+			this->midGearTeeth2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// midGearTeethLabel2
+			// 
+			this->midGearTeethLabel2->AutoSize = true;
+			this->midGearTeethLabel2->Location = System::Drawing::Point(67, 24);
+			this->midGearTeethLabel2->Name = L"midGearTeethLabel2";
+			this->midGearTeethLabel2->Size = System::Drawing::Size(61, 13);
+			this->midGearTeethLabel2->TabIndex = 16;
+			this->midGearTeethLabel2->Text = L"No Teeth 2";
+			// 
 			// midGearTeeth1
 			// 
 			this->midGearTeeth1->Location = System::Drawing::Point(13, 43);
@@ -483,28 +501,11 @@ namespace TorqueCalculator {
 			this->midGearTeethLabel1->TabIndex = 10;
 			this->midGearTeethLabel1->Text = L"No Teeth 1";
 			// 
-			// midGearTeeth2
-			// 
-			this->midGearTeeth2->Location = System::Drawing::Point(74, 43);
-			this->midGearTeeth2->Name = L"midGearTeeth2";
-			this->midGearTeeth2->Size = System::Drawing::Size(41, 20);
-			this->midGearTeeth2->TabIndex = 17;
-			this->midGearTeeth2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// midGearTeethLabel2
-			// 
-			this->midGearTeethLabel2->AutoSize = true;
-			this->midGearTeethLabel2->Location = System::Drawing::Point(67, 24);
-			this->midGearTeethLabel2->Name = L"midGearTeethLabel2";
-			this->midGearTeethLabel2->Size = System::Drawing::Size(61, 13);
-			this->midGearTeethLabel2->TabIndex = 16;
-			this->midGearTeethLabel2->Text = L"No Teeth 2";
-			// 
 			// TorqueCalculator
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(375, 392);
+			this->ClientSize = System::Drawing::Size(375, 311);
 			this->Controls->Add(this->middleGearGroup);
 			this->Controls->Add(this->outputGearGroup);
 			this->Controls->Add(this->inputGearGroup);
@@ -516,6 +517,7 @@ namespace TorqueCalculator {
 			this->Controls->Add(this->StepDescription);
 			this->Controls->Add(this->StepTittle);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximumSize = System::Drawing::Size(391, 350);
 			this->MinimumSize = System::Drawing::Size(391, 350);
 			this->Name = L"TorqueCalculator";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -529,8 +531,8 @@ namespace TorqueCalculator {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->outputGearTeeth))->EndInit();
 			this->middleGearGroup->ResumeLayout(false);
 			this->middleGearGroup->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->midGearTeeth1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->midGearTeeth2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->midGearTeeth1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -552,8 +554,10 @@ namespace TorqueCalculator {
 				return;
 			}
 
-			this->MaximumSize = System::Drawing::Size(591, 350);
-			this->MinimumSize = System::Drawing::Size(591, 350);
+			int torqueCalculatorHeight = this->selectedGearType == TRAIN_GEAR ? 350 : 434;
+
+			this->MaximumSize = System::Drawing::Size(591, torqueCalculatorHeight);
+			this->MinimumSize = System::Drawing::Size(591, torqueCalculatorHeight);
 			this->currentCalculatorState = this->selectedGearType == TRAIN_GEAR ? CALCULATE_GEAR : CALCULATE_COMP_GEAR;
 			this->StepTittle->Text = this->selectedGearType == TRAIN_GEAR ? L"Train Gear Calculator" : L"Compound Gear Calculator";
 			//this->gearsPictureBox->Width = this->selectedGearType == TRAIN_GEAR ? this->gearsPictureBox->MinimumSize.Width : this->gearsPictureBox->MaximumSize.Width;
@@ -563,6 +567,9 @@ namespace TorqueCalculator {
 			this->StepDescription->Text = L"Set the calculation parameters:";
 			this->ConfirmButton->Text = L"CALCULATE";
 
+			if (this->selectedGearType == COMPOUND_GEAR)
+				this->middleGearGroup->Show();
+
 			this->inputGearGroup->Show();
 			this->outputGearGroup->Show();
 			this->GearTrainOption->Hide();
@@ -570,9 +577,24 @@ namespace TorqueCalculator {
 			this->CancelButton->Show();
 			this->gearsPictureBox->Show();
 		}
-		//TODO: Torque Calculations
+		//Torque Calculations
 		else {
+			unsigned inputGearTeeth = Convert::ToInt32(this->inputGearTeeth->Text);
+			unsigned inputGearRPM = Convert::ToUInt32(this->inputGearRPM->Text);
+			unsigned inputGearTorque = Convert::ToUInt32(this->inputGearTorque->Text);
 
+			if (this->selectedGearType == TRAIN_GEAR) {
+				
+				unsigned ouputGearTeeth = Convert::ToInt32(this->outputGearTeeth->Text);
+				unsigned ratio = this->calcRatio(inputGearTeeth, ouputGearTeeth);
+				
+				this->outputGearRPM->Text = Convert::ToString(this->calcOutputRPM(inputGearRPM, ratio));
+				this->outputGearTorque->Text = Convert::ToString(this->calcOutputTorque(inputGearTorque, ratio));
+				
+			}
+			else if (this->selectedGearType == COMPOUND_GEAR) {
+				//TODO: Compound Gear train calculations
+			}
 		}
 		
 	}
@@ -586,6 +608,7 @@ namespace TorqueCalculator {
 		this->MinimumSize = System::Drawing::Size(391, 350);
 
 		this->inputGearGroup->Hide();
+		this->middleGearGroup->Hide();
 		this->outputGearGroup->Hide();
 		this->CancelButton->Hide();
 		this->gearsPictureBox->Hide();
