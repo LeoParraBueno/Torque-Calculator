@@ -40,16 +40,39 @@ namespace TorqueCalculator {
 			this->outputGearGroup->Hide();
 		}
 
-		unsigned calcRatio(unsigned input_gear_teeth_number, unsigned output_gear_teeth_number) {
-			return output_gear_teeth_number / input_gear_teeth_number;
+		float calcRatio(unsigned input_gear_teeth_number, unsigned output_gear_teeth_number) {
+			try
+			{
+				return (float)output_gear_teeth_number / (float)input_gear_teeth_number;
+
+			}
+			catch (System::DivideByZeroException^ e)
+			{
+				return 0.0F;
+			}
 		}
 
-		unsigned calcOutputRPM(unsigned input_RPM, unsigned ratio) {
-			return input_RPM / ratio;
+		float calcOutputRPM(float input_RPM, float ratio) {
+			try
+			{
+				return input_RPM / ratio;
+			}
+			catch (System::DivideByZeroException^ e)
+			{
+				return 0.0F;
+			}
+			
 		}
 
-		float calcOutputTorque(float input_torque, unsigned ratio) {
-			return input_torque * ratio;
+		float calcOutputTorque(float input_torque, float ratio) {
+			try
+			{
+				return input_torque * ratio;
+			}
+			catch (System::DivideByZeroException^ e)
+			{
+				return 0.0F;
+			}
 		}
 
 	protected:
@@ -580,13 +603,13 @@ namespace TorqueCalculator {
 		//Torque Calculations
 		else {
 			unsigned inputGearTeeth = Convert::ToInt32(this->inputGearTeeth->Text);
-			unsigned inputGearRPM = Convert::ToUInt32(this->inputGearRPM->Text);
-			unsigned inputGearTorque = Convert::ToUInt32(this->inputGearTorque->Text);
+			float inputGearRPM = Convert::ToSingle(this->inputGearRPM->Text);
+			float inputGearTorque = Convert::ToSingle(this->inputGearTorque->Text);
 
 			if (this->selectedGearType == TRAIN_GEAR) {
 				
 				unsigned ouputGearTeeth = Convert::ToInt32(this->outputGearTeeth->Text);
-				unsigned ratio = this->calcRatio(inputGearTeeth, ouputGearTeeth);
+				float ratio = this->calcRatio(inputGearTeeth, ouputGearTeeth);
 				
 				this->outputGearRPM->Text = Convert::ToString(this->calcOutputRPM(inputGearRPM, ratio));
 				this->outputGearTorque->Text = Convert::ToString(this->calcOutputTorque(inputGearTorque, ratio));
@@ -599,6 +622,11 @@ namespace TorqueCalculator {
 		
 	}
 	private: System::Void CancelButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		this->midGearRPM->Text = L"";
+		this->midGearTorque->Text = L"";
+		this->outputGearRPM->Text = L"";
+		this->outputGearTorque->Text = L"";
 
 		this->StepTittle->Text = L"Type of Gear";
 		this->StepDescription->Text = L"Select the type of gear you need to calculate:";
